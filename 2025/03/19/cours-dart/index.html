@@ -87,22 +87,24 @@
 }
 
 /* Conteneur des cartes */
-.card-list {
-    width: 100%;              /* Utiliser 100% de la largeur de son parent */
 
-    margin: 0 auto;           /* Centrer le conteneur */
+@media screen and (min-width: 1025px) {
+.card-list {
+    width: 100%;             
+
+    margin: 0 auto;          
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0px;
 }
-/* Cibler chaque carte et forcer 4 éléments par ligne */
+
 .card-list .card-wrapper {
-    flex: 0 1 25%;             /* Chaque carte prend 23% de la largeur */
-    margin-bottom: 10px;       /* Espace entre les lignes */
+    flex: 0 1 25%;              
+    margin-bottom: 10px;       
 }
 
-
+}
 
 
 /* Style du bouton "Réserver" */
@@ -175,9 +177,9 @@ a.savoir:hover {
       class="search-form"
 >
     <div class="relative">
-        <label class="flex items-center flex-grow mb-0" for="search-form-67dc2188beb38">
+        <label class="flex items-center flex-grow mb-0" for="search-form-67dc2627e4b28">
             <span class="screen-reader-text">Search for:</span>
-            <input type="search" id="search-form-67dc2188beb38"
+            <input type="search" id="search-form-67dc2627e4b28"
                    placeholder="Type &amp; Hit Enter"
                    value="" name="s"
                    class="search-input"
