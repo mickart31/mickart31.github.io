@@ -90,6 +90,9 @@
 }
 
 .card-list .card-wrapper {
+		  position: relative;
+
+
     flex: 0 1 25%;              
     margin-bottom: 10px;       
 }
@@ -99,10 +102,13 @@
 
 /* Style du bouton "Réserver" */
 .reserver {
+		  bottom: 33px;
+	  right: 20px;
+	position: absolute;
     display: inline-block;
 	  float: right;
     padding: 10px 15px;
-    background: #EF8800;
+    background: #d8460c;
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -111,16 +117,19 @@
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
 }
 .reserver:hover {
-    background: #C66900;
+    background: #ff8e81;
     transform: scale(1.05);
 }
 
 /* Style du bouton "En savoir plus" */
 .savoir {
+	  position: absolute;
+	  bottom: 35px;
+	  left: 20px;
 	  float: left;
     display: inline-block;
     padding: 8px 12px;
-    background: #1186E3;
+    background: #60497e;
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -128,27 +137,89 @@
     transition: background 0.3s, transform 0.2s;
 }
 .savoir:hover {
-    background: #0966C2;
+    background: #b393d3;
     transform: scale(1.05);
 }
 
 a.reserver {
-	color: #ffffff;
+	color: #FFFFFF;
 }
 
 a.savoir {
-	color: #ffffff;
+	color: #FFFFFF;
 }
 
 a.reserver:hover {
-	color: #ffffff;
+	color: #FFFFFF;
 	text-decoration: none;
 }
 
 a.savoir:hover {
-	color: #ffffff;
+	color: #FFFFFF;
 	text-decoration: none;
 }
+
+
+
+/* Style du bouton "Réserver" */
+.reserver2 {
+
+    display: inline-block;
+	  float: right;
+    padding: 10px 15px;
+    background: #d8460c;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+}
+.reserver2:hover {
+    background: #ff8e81;
+    transform: scale(1.05);
+}
+
+/* Style du bouton "En savoir plus" */
+.savoir2 {
+
+	  float: left;
+    display: inline-block;
+    padding: 8px 12px;
+    background: #60497e;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+.savoir2:hover {
+    background: #b393d3;
+    transform: scale(1.05);
+}
+
+a.reserver2 {
+	color: #FFFFFF;
+}
+
+a.savoir2 {
+	color: #FFFFFF;
+}
+
+a.reserver2:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+a.savoir2:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+
+
+
+
 @media screen and (max-width: 1025px) {
 
 	body > header > div.yuki-header-row.yuki-header-row-primary_navbar {
@@ -157,7 +228,17 @@ a.savoir:hover {
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
+	
+	.card-list .card-wrapper {
+		  position: relative;
+
+
+      
 }
+}
+
+
+
 		</style>
 		</head>
 <body class="archive category category-non-classe category-1 wp-embed-responsive wp-theme-yuki wp-child-theme-yuki-ever-blog yuki-body overflow-x-hidden yuki-form-modern hfeed"        data-yuki-scroll-reveal="{&quot;delay&quot;:200,&quot;duration&quot;:600,&quot;interval&quot;:200,&quot;opacity&quot;:0,&quot;scale&quot;:1,&quot;origin&quot;:&quot;bottom&quot;,&quot;distance&quot;:&quot;200px&quot;}">
@@ -181,6 +262,7 @@ a.savoir:hover {
 			<div class="yuki-builder-column yuki-builder-column-0 yuki-builder-column-desktop yuki-builder-column-desktop-dir-column yuki-builder-column-tablet-dir-column yuki-builder-column-mobile-dir-column yuki_header_builder_col_modal_0_desktop">            <div data-builder-element="widgets" class="prose yuki-heading yuki-heading-style-1 yuki_header_el_widgets">
 				            </div>
 			</div><div class="yuki-builder-column yuki-builder-column-0 yuki-builder-column-mobile yuki-builder-column-desktop-dir-column yuki-builder-column-tablet-dir-column yuki-builder-column-mobile-dir-column yuki_header_builder_col_modal_0_mobile"><div data-builder-element="collapsable-menu" class="yuki-collapsable-menu h-full yuki_header_el_collapsable-menu_wrap"><ul id="menu-menu-du-header" class="yuki-collapsable-menu yuki_header_el_collapsable-menu collapsable yuki-menu-has-arrow"><li id="menu-item-42" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42"><a href="/">Accueil<button type="button" class="yuki-dropdown-toggle"><span class="yuki-menu-icon"><i class="fas fa-angle-down"></i></span></button></a></li>
+<li id="menu-item-286" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-286"><a href="https://micka.7un.net/aprops/">A Propos<button type="button" class="yuki-dropdown-toggle"><span class="yuki-menu-icon"><i class="fas fa-angle-down"></i></span></button></a></li>
 <li id="menu-item-44" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a href="https://micka.7un.net/galerie/">Galerie<button type="button" class="yuki-dropdown-toggle"><span class="yuki-menu-icon"><i class="fas fa-angle-down"></i></span></button></a></li>
 <li id="menu-item-53" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53"><a href="https://micka.7un.net/reservation/">Réservation<button type="button" class="yuki-dropdown-toggle"><span class="yuki-menu-icon"><i class="fas fa-angle-down"></i></span></button></a></li>
 <li id="menu-item-43" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43"><a href="https://micka.7un.net/contact/">Contact<button type="button" class="yuki-dropdown-toggle"><span class="yuki-menu-icon"><i class="fas fa-angle-down"></i></span></button></a></li>
@@ -220,6 +302,7 @@ a.savoir:hover {
 					                </div>
             </div>
 			</div><div class="yuki-builder-column yuki-builder-column-1 yuki-builder-column-desktop yuki-builder-column-desktop-dir-row yuki-builder-column-tablet-dir-row yuki-builder-column-mobile-dir-row yuki_header_builder_col_bottom_row_1_desktop"><div data-builder-element="menu-2" class="yuki-menu-wrap h-full yuki_header_el_menu_2_wrap"><ul id="menu-menu-du-header-1" class="sf-menu clearfix yuki-menu yuki_header_el_menu_2 yuki-menu-has-arrow"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42"><a href="/">Accueil<span class="yuki-menu-icon"><i class="fas fa-angle-down"></i></span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-286"><a href="https://micka.7un.net/aprops/">A Propos<span class="yuki-menu-icon"><i class="fas fa-angle-down"></i></span></a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a href="https://micka.7un.net/galerie/">Galerie<span class="yuki-menu-icon"><i class="fas fa-angle-down"></i></span></a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53"><a href="https://micka.7un.net/reservation/">Réservation<span class="yuki-menu-icon"><i class="fas fa-angle-down"></i></span></a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43"><a href="https://micka.7un.net/contact/">Contact<span class="yuki-menu-icon"><i class="fas fa-angle-down"></i></span></a></li>
@@ -263,7 +346,14 @@ a.savoir:hover {
 																					<div class="card-content">													<h2 class="entry-title mb-half-gutter last:mb-0"><a class="link" href="https://micka.7un.net/2025/04/18/contes/" rel="bookmark">Contes</a> </h2>									
 																																				
 						                <div class="entry-excerpt yuki-raw-html mb-gutter last:mb-0">
-					Plongez dans des mondes où les contes traditionnels rencontrent des récits personnalisés, comme une clé ouvrant la porte de l’imaginaire. Que ce soit pour un anniversaire féerique ou un autre moment spécial, chaque histoire devient un voyage magique, peuplé de dragons, de fées et de héros. Choisissez votre conte, classique ou sur mesure, et laissez-vous envoûter par la magie des mots !                </div>
+					Plongez dans des mondes où les contes traditionnels rencontrent des récits personnalisés, comme une clé ouvrant la porte de l’imaginaire. Que ce soit pour un anniversaire féerique ou un autre moment spécial, chaque histoire devient un voyage magique, peuplé de dragons, de fées et de héros. Choisissez votre conte, classique ou sur mesure, et laissez-vous envoûter par la magie des mots !
+
+<br/>
+<br/>
+<div class="card-buttons">
+<a href="/2025/04/18/contes/" class="savoir">En savoir plus</a>
+<a href="https://mickart31.simplybook.it/v2/?preview=1&theme_id=1&widget-type=button&is_rtl=0&timeline=modern&datepicker=top_calendar#book/service/7/count/1/" class="reserver">Réserver</a>
+</div>                </div>
 													    </article>
 </div>
 
@@ -280,8 +370,10 @@ a.savoir:hover {
 					Découvrez le monde de la musique dès le plus jeune âge à travers des jeux et des chansons, développant ainsi la créativité et la coordination des tout-petits.
 <br/>
 <br/>
+<div class="card-buttons">
 <a href="/2025/03/20/eveil-musical/" class="savoir">En savoir plus</a>
-<a href="https://mickart31.simplybook.it/v2/?preview=1&theme_id=1&widget-type=button&is_rtl=0&timeline=modern&datepicker=top_calendar#book/service/3/count/1/" class="reserver">Réserver</a>                </div>
+<a href="https://mickart31.simplybook.it/v2/?preview=1&theme_id=1&widget-type=button&is_rtl=0&timeline=modern&datepicker=top_calendar#book/service/3/count/1/" class="reserver">Réserver</a>
+</div>                </div>
 													    </article>
 </div>
 
@@ -298,8 +390,10 @@ a.savoir:hover {
 					Explorez différentes techniques artistiques pour exprimer votre créativité, que vous soyez enfant, adolescent ou adulte, dans une ambiance conviviale et inspirante.
 <br/>
 <br/>
+<div class="card-buttons">
 <a href="/2025/03/19/cours-dart/" class="savoir">En savoir plus</a>
-<a href="https://mickart31.simplybook.it/v2/?preview=1&theme_id=1&widget-type=button&is_rtl=0&timeline=modern&datepicker=top_calendar#book/service/5/count/1/" class="reserver">Réserver</a>                </div>
+<a href="https://mickart31.simplybook.it/v2/?preview=1&theme_id=1&widget-type=button&is_rtl=0&timeline=modern&datepicker=top_calendar#book/service/5/count/1/" class="reserver">Réserver</a>
+</div>                </div>
 													    </article>
 </div>
 
@@ -335,6 +429,15 @@ a.savoir:hover {
 
 <br/>
 <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+
+
 <a href="/2025/03/17/anniversaires/" class="savoir">En savoir plus</a>
 <a href="https://mickart31.simplybook.it/v2/?preview=1&theme_id=1&widget-type=button&is_rtl=0&timeline=modern&datepicker=top_calendar#book/service/4/count/1/" class="reserver">Réserver</a>                </div>
 													    </article>
