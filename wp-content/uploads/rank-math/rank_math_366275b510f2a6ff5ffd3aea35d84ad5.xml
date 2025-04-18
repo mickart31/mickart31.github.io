@@ -2,18 +2,22 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://micka.7un.net/</loc>
-		<lastmod>2025-03-19T11:51:09+00:00</lastmod>
+		<lastmod>2025-04-18T11:24:55+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://micka.7un.net/galerie/</loc>
+		<lastmod>2025-04-18T11:24:55+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://micka.7un.net/aprops/</loc>
+		<lastmod>2025-04-18T11:24:28+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://micka.7un.net/contact/</loc>
+		<lastmod>2025-04-18T11:20:50+00:00</lastmod>
 	</url>
 	<url>
 		<loc>https://micka.7un.net/reservation/</loc>
 		<lastmod>2025-03-19T11:51:09+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://micka.7un.net/contact/</loc>
-		<lastmod>2025-03-19T11:28:47+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://micka.7un.net/galerie/</loc>
-		<lastmod>2025-03-19T11:15:45+00:00</lastmod>
 	</url>
 </urlset>
