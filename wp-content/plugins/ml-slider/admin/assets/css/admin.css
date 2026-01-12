@@ -27,11 +27,26 @@
 .container {
 	max-width: theme('screens.lg');
 }
-
+pre#shortcode > div:after {
+  content: "";
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23e07736'><path stroke-linecap='round' stroke-linejoin='round' d='M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75'/></svg>") no-repeat center;
+  background-size: contain;
+  margin-left: 15px;
+}
 pre#shortcode::selection,
 pre#shortcode *::selection {
 	@apply bg-blue-highlight text-gray-darker;
 }
+
+#metaslider-ui button:disabled,
+#metaslider-ui button:disabled:hover {
+    cursor: default;
+    opacity: 0.8;
+}
+
 
 /* Consider everything after this a legacy style with the intent to
 eventually be removed/refactored */
@@ -39,7 +54,7 @@ eventually be removed/refactored */
 .metaslider.wrap div.error {
     clear: both
 }
-.metaslider .left input[type=text],
+.metaslider .left input[type=text]:not(.tox-input-wrapper input),
 .metaslider .left textarea {
     border: 1px solid #8c8f94;
     border-radius: 4px;
@@ -89,21 +104,67 @@ eventually be removed/refactored */
 
 /* Settings table */
 .metaslider .ms-settings-table {
+    border-color: #c3c4c7;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    width: 100%;
+    background: #fff;
+    margin-bottom: 20px;
+}
+.metaslider .ms-settings-table .ms-settings-box-inner {
+    margin: 22px 0;
+    width: 100%;
+}
+.metaslider .ms-settings-table .ms-highlight {
+    color: #50575e;
+    background: #f1f1f1;
+    font-size: 1.2em;
+    font-weight: 700;
+    line-height: 2em;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding: 6px 20px;
+    border-width: 1px 0;
+    border-color: #c3c4c7;
+    border-style: solid;
+}
+.metaslider .ms-settings-table .css-prop-wrap input[type="number"] {
+    -moz-appearance: textfield;
+    width: 40px;
+    font-size: 0.7rem !important;
+}
+.metaslider .ms-settings-table .css-prop-wrap input[type=number]::-webkit-inner-spin-button,
+.metaslider .ms-settings-table .css-prop-wrap input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.metaslider .ms-settings-table .css-prop-wrap span {
+    font-size: 0.7rem;
+    display: block;
+}
+
+.metaslider .ms-settings-table .wp-picker-container .wp-color-result-text, 
+.metaslider .ms-settings-table .wp-picker-container .wp-picker-clear {
+  display: none;
+}
+.metaslider .ms-settings-table .wp-picker-container .wp-picker-holder, 
+.metaslider .ms-settings-table .wp-picker-container .wp-picker-input-wrap {
+  position: absolute;
+  z-index: 9999;
+}
+
+.metaslider #metaslider_configuration .slider-lib {
+    margin-bottom: 20px;
+}
+.metaslider .ms-settings-table {
     box-shadow: 0 1px 1px rgba(0,0,0,.04);
     width: 100%;
     border-collapse: collapse;
     border-bottom: 1px solid #c3c4c7;
 }
 .metaslider .ms-settings-table tr {
-    border-style: solid;
-    border-width: 0 1px;
-    border-color: #c3c4c7;
-    background: #fff; 
-}
-.metaslider .ms-settings-table tr.highlight {
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    background: #f1f1f1;
+    
 }
 .metaslider .ms-settings-table tr.slider-lib {
     background: transparent;
@@ -133,8 +194,26 @@ eventually be removed/refactored */
 .metaslider .ms-settings-table tr:not(.highlight) td:nth-of-type(2) {
     width: 60%;
 }
-.metaslider .ms-settings-table tr.empty-row-spacing td {
-    height: 22px;
+
+/* Toggle settings */
+.metaslider .ms-settings-table .ms-highlight {
+  cursor: pointer;
+  user-select: none;
+}
+.metaslider .ms-settings-table .ms-highlight .ms-toggle-static {
+  float: right;
+}
+.metaslider .ms-settings-table .ms-highlight .ms-toggle-static span {
+  margin-top: 6px;
+}
+.metaslider .ms-settings-table .ms-settings-box.ms-on .ms-highlight .ms-toggle-static span:before {
+  content: "\f343";
+}
+.metaslider .ms-settings-table .ms-settings-box.ms-off .ms-highlight .ms-toggle-static span:before {
+  content: "\f347";
+}
+.metaslider .ms-settings-table .ms-settings-box.ms-off .ms-highlight {
+    border-bottom: none;
 }
 
 /* Switch button */
@@ -162,6 +241,10 @@ eventually be removed/refactored */
     -ms-transform: translateX(20px);
     -o-transform: translateX(20px);
     transform: translateX(20px);
+}
+.metaslider .ms-switch-button label input[disabled] + span {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 .metaslider .ms-switch-button label span {
     position: absolute;
@@ -251,6 +334,11 @@ eventually be removed/refactored */
 .metaslider .left table tr.slide input.url {
     width: 100%;
     min-width: 200px;
+}
+
+.metaslider .left table tr.slide input[type="text"].video_url,
+.metaslider .left table tr.slide input[type="text"].track_url {
+    border-radius: 0;
 }
 
 .branch-3-5 .metaslider .left table tr.slide .tabs-content .new_window,
@@ -550,8 +638,13 @@ eventually be removed/refactored */
     cursor: pointer;
 }
 
-.metaslider .right table {
+.metaslider #metaslider_configuration table.ms-settings-table:last-of-type {
     margin: 0 0 22px 0;
+}
+
+.metaslider #metaslider_configuration table.ms-settings-table:not(:last-of-type) {
+    margin: 0;
+    border-bottom: none !important;
 }
 
 .metaslider select {
@@ -606,13 +699,13 @@ eventually be removed/refactored */
     width: 125px;
 }
 
-.metaslider .tabs-content .row input {
+.metaslider .tabs-content .row input:not(.tox-input-wrapper input) {
     margin-right: 5px;
     margin-bottom: 0px;
     margin-left: 0px;
 }
 
-.metaslider .tabs-content .row input[type="text"] {
+.metaslider .tabs-content .row input[type="text"]:not(.tox-input-wrapper input) {
     width: 100%;
 }
 
@@ -711,12 +804,12 @@ eventually be removed/refactored */
 	padding-top: 1rem;
 }
 
-.metaslider .tabs-content .schedule_placeholder {
+.metaslider .tabs-content .pro-feature_placeholder {
 	text-align: center;
 	padding-top: 10px;
 }
 
-.metaslider .tabs-content .schedule_placeholder h4 {
+.metaslider .tabs-content .pro-feature_placeholder h4 {
 	font-weight: normal;
 }
 
@@ -970,6 +1063,72 @@ input[type="radio"] {
 /* TinyMCE */
 .tox.tox-tinymce-aux {
     z-index: 9999;
+}
+.tox-tinymce-aux .tox-menu h1, .tox-tinymce-aux .tox-menu p {
+	margin-bottom: 0 !important;
+}
+.mce-content-body .ms-custom-button {
+    background-color: #DD6923;
+    border-radius: 9px;
+    color: #000;
+    display: inline-block;
+    padding: 10px 20px;
+}
+.tox-tinymce-aux .colorpicker {
+    width: 183px !important;
+}
+.tox-tinymce-aux .wp-picker-container {
+    display: flex;
+    flex-direction: column;
+
+    > .wp-color-result {
+        order: 0;
+        width: 32px;
+    }
+    > .wp-picker-input-wrap {
+        order: 2;
+    }
+    > .wp-picker-holder {
+        order: 1;
+    }
+    .wp-color-result.button {
+        margin-bottom: 0;
+    }
+    .wp-picker-input-wrap {
+        display: block;
+        margin-top: 6px;
+
+        input {
+            border: 1px solid;
+        }
+        .screen-reader-text {
+            display: none !important;
+        }
+    }
+    .wp-picker-input-wrap,
+    .wp-picker-holder {
+        z-index: 9999;
+    }
+    .wp-color-result-text, 
+    .wp-picker-clear {
+        display: none;
+    }
+    .wp-picker-holder {
+
+        .iris-picker  {
+            position: relative;
+            min-height: 225px;
+
+            .iris-picker-inner,
+            .iris-palette-container {
+                position: absolute;
+            }
+        }
+    }
+}
+.tox .tox-number-input input {
+    margin: 0 !important;
+    min-height: 28px;
 }
 
  /* Spin an svg */
@@ -1327,6 +1486,12 @@ input.no_last_pass {
 .metaslider_page_upgrade-metaslider #ms-toolbar .container{
 	margin: 0;
 }
+.metaslider_page_upgrade-metaslider-theme-editor #ms-toolbar .container{
+	max-width: unset;
+}
+.metaslider_page_upgrade-metaslider-theme-editor div#wpbody-content {
+    background: transparent !important;
+}
 .metaslider_upgrade{
 	margin: 30px auto;
 	max-width: 80%;
@@ -1451,6 +1616,16 @@ input.no_last_pass {
 .ml-legacy-notice p {
 	margin: 10px 0 !important;
 }
+.ml-legacy-notice.ml-move-notice {
+	margin: 0 0 10px !important;
+	border: 1px solid #f2a561;
+	background-color: #f9edc9;
+}
+.ml-move-notice a {
+	color: #016FB9;
+	font-weight: bold;
+	text-decoration: underline;
+}
 
 #metaslider-ui, 
 .container {
@@ -1474,7 +1649,7 @@ input.no_last_pass {
 #slideshows-list {
     margin: 10px;
 }
-.metaslider [class*="tipsy-tooltip"].dashicons {
+.metaslider [class*="tipsy-tooltip"].dashicons:not(.is-pro-setting):not(.is-free-setting) {
 	opacity: 0.5;
 	font-size: 1rem;
 	line-height: 30px;
@@ -1490,6 +1665,61 @@ input.no_last_pass {
     overflow: hidden;
     width: 150px;
     height: 150px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+.shortcode-modal {
+	background: #fff;
+	border: 1px solid #ccc;
+	box-shadow: 0 0 10px rgba(0,0,0,.2);
+	display: none;
+	left: 50%;
+	max-width: 500px;
+	min-width: 300px;
+	padding: 20px;
+	position: fixed;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 400px;
+	z-index: 1000;
+	max-height: 400px;
+	overflow: auto;
+}
+.shortcode-modal .modal-content {
+    position: relative;
+    padding: 10px;
+}
+.shortcode-modal .close-modal {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+.shortcode-modal ul {
+	list-style: disc;
+	padding-left: 20px;
+}
+.shortcode-modal li {
+	margin: 0;
+	font-size: 14px;
+	line-height: 21px;
+}
+.shortcode-modal h5 {
+	margin: 10px 0 0 0;
+	text-transform: uppercase;
+	font-size: 14px;
+	letter-spacing: 1px;
 }
 
 /* Force CSS properties overriden by core for .form-select class */
@@ -1552,33 +1782,22 @@ input.no_last_pass {
 }
 
 /* Settngs & Help Page */
-#mobile-settings button,
-#dashboard-settings button {
+.ms-settings-row > .ms-settings-col:not(:last-child) button {
 	display: none !important;
 }
-#mobile-settings div.col:last-child button,
-#dashboard-settings div.col:last-child button {
-	display: inline-block !important;
-}
-#mobile-settings .row,
-#dashboard-settings .row {
-	display: flex;
-}
-#mobile-settings .col,
-#dashboard-settings .col {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-}
 #mobile-settings .dashicons {
-	padding: 25px 10px;
-	width: 55px;
-	height: 75px;
-	font-size: 25px;
 	color: #606060;
+	font-size: 35px;
+	height: 30px;
+	padding: 0;
+	width: 30px;
 }
 #mobile-settings form input {
-	width: 80px !important;
+	width: 60px !important;
+}
+#mobile-settings .mobile-icon-wrap {
+	padding: 20px 5px 0 5px;
+	text-align: center;
 }
 #dashboard-settings form {
 	box-shadow: none !important;
@@ -1657,7 +1876,7 @@ td .dot.available {
 	background-color: #F0F0F1;
 	padding: 30px 0;
 }
-.css-manager-ad-container .probutton, .schedule_placeholder .probutton{
+.css-manager-ad-container .probutton, .pro-feature_placeholder .probutton{
 	color: #fff;
 	background: #dd6923;
 	padding: 12px 30px !important;
@@ -1671,26 +1890,26 @@ td .dot.available {
 	line-height: 1.8 !important;
 	white-space: unset;
 }
-.schedule_placeholder .probutton {
+.pro-feature_placeholder .probutton {
 	margin-top: 0!important;
 	margin-bottom: 15px;
 }
 .css-manager-ad-container .dashicons.dashicons-external,
-.schedule_placeholder .dashicons.dashicons-external{
+.pro-feature_placeholder .dashicons.dashicons-external{
 	margin-top: 5px;
 }
-.css-manager-ad-container h1, .schedule_placeholder h1 {
+.css-manager-ad-container h1, .pro-feature_placeholder h1 {
 	color: #29375b;
 	font-size: 28px;
 	line-height: 1.2;
 	font-weight: 600 !important;
 }
-.schedule_placeholder h1 {
+.pro-feature_placeholder h1 {
     margin-bottom: 5px!important;
 }
 .css-manager-ad-container li,
 .css-manager-ad-container p,
-.schedule_placeholder p {
+.pro-feature_placeholder p {
 	font-size: 16px !important;
 	font-style: normal !important;
 	color: #3c434a !important;
@@ -1701,8 +1920,8 @@ td .dot.available {
 	box-shadow: 0px 5px 5px 0px silver;
 }
 
-#loading-add-sample-slides-notice,
-#add-first-slide-notice {
+.ms-loading-settings,
+#loading-add-sample-slides-notice {
     height: 200px;
     text-align: center;
     width: 100%;
@@ -1713,7 +1932,41 @@ td .dot.available {
     background: #fff;
 }
 
-#loading-add-sample-slides-notice span {
+#add-new-slide-wide {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    font-size: 1.3em;
+    text-align: center;
+    width: 100%;
+
+    &.ms-add-new-first {
+        margin-bottom: 22px;
+    }
+
+    a {
+        padding: 25px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+
+        span {
+            white-space: nowrap;
+            line-height: 1.4em;
+        }
+
+        &:hover {
+            color: rgba(35,41,45) !important;
+            background: #f1f1f1;
+        }
+
+        &:focus {
+            box-shadow: none !important;
+        }
+    }
+}
+
+.ms-loading-settings > span,
+#loading-add-sample-slides-notice > span {
     padding-left: 30px;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1749,6 +2002,10 @@ td .dot.available {
                 }
             }
 
+            &.customizer-slide {
+                display: none !important;
+            }
+            
             td {
                 padding-left: 10px;
                 padding-right: 10px;
@@ -1770,6 +2027,8 @@ td .dot.available {
                         font-weight: 500;
                         color: #50575e;
                         font-size: 0.9rem;
+                        margin: 0 !important;
+                        padding: 0 !important;
                     }
                 }
 
@@ -1914,6 +2173,84 @@ td .dot.available {
 	display: none;
 }
 
+.metaslider .is-pro-setting,
+.metaslider .is-free-setting {
+    width: 30px;
+    opacity: 1;
+    font-size: 1rem;
+    line-height: 1.2rem;
+}
+
+.metaslider .is-pro-setting {
+    color: #333;
+}
+
+.metaslider .is-free-setting {
+    color: #fff;
+}
+
+.metaslider .ms-settings-table .is-pro-setting,
+.metaslider .ms-settings-table .is-free-setting {
+    font-size: 1rem;
+	line-height: 30px;
+}
+
+.metaslider .ms-settings-table tr.number .is-pro-setting,
+.metaslider .ms-settings-table tr.number .is-free-setting {
+	line-height: 20px;
+}
+
+.metaslider .ms-settings-table .checkbox .is-pro-setting,
+.metaslider .ms-settings-table .checkbox .is-free-setting {
+	line-height: 22px;
+}
+
+.metaslider .is-pro-setting:hover {
+    color: #333;
+}
+
+.metaslider .is-free-setting:hover {
+    color: #fff;
+}
+
+.metaslider .is-pro-setting:focus,
+.metaslider .is-free-setting:focus {
+    box-shadow: none;
+}
+
+.metaslider .is-pro-setting:before,
+.metaslider .is-free-setting:before {
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.metaslider .is-pro-setting:before {
+    background: #feb123;
+}
+
+.metaslider .is-free-setting:before {
+    background: #007cba;
+}
+
+.metaslider-ui .metaslider-slides-container .slide.slide-is-hidden td > *:not(.metaslider-ui-controls) {
+	opacity: .2;
+}
+
+/* Force display inline-block when flex class (for FlexSlider) conflicts */
+.metaslider .ms-settings-table select.flex.inline-block,
+.metaslider .ms-settings-table input.flex.inline-block {
+    display: inline-block !important;
+}
+
+#ms-save.ms-toolbar-button:not(.disabled) {
+    background: #007cba !important;
+}
+#ms-save.ms-toolbar-button:not(.disabled):hover,
+#ms-save.ms-toolbar-button:not(.disabled):focus,
+#ms-save.ms-toolbar-button:not(.disabled):active {
+    background: #006ba1 !important;
+}
+
 @media only screen and (min-width : 320px) {
     .toolbar-separator, .toolbar-actions{
         padding: 0!important;
@@ -2011,6 +2348,10 @@ td .dot.available {
     /* Edit slideshow */
     .metaslider-ui .metaslider-slides-container .metaslider-ui-inner .thumb {
         height: 240px;
+    }
+    /* Upgrade pages */
+    .metaslider_page_upgrade-metaslider-theme-editor .ms-panel-container {
+        flex-direction: column;
     }
 }
 

@@ -65,15 +65,15 @@ export default {
 		},
 		captionSource: {
 			type: [String],
-			default: 'image-caption'
+			default: 'override'
 		}
 	},
 	data() {
 		return {
 			sources: {
+				'override': this.override,
 				'image-caption': this.cleanupQuotes(this.imageCaption),
-				'image-description': this.cleanupQuotes(this.imageDescription),
-				'override': this.override
+				'image-description': this.cleanupQuotes(this.imageDescription)
 			},
 			language: {},
 			selectedSource: '',
@@ -83,8 +83,18 @@ export default {
 		}
 	},
 	created() {
-		this.selectedSource = this.captionSource ? this.captionSource : 'image-caption'
-	},
+        this.selectedSource = this.captionSource ? this.captionSource : 'override'
+        // Check if URL contains metaslider_add_sample_slides=withcaption
+        const urlParams = new URLSearchParams(window.location.search);
+        const sampleSlides = urlParams.get('metaslider_add_sample_slides');
+		
+        if (sampleSlides === 'withcaption') {
+            // Set default to media caption for carousel with captions
+            this.selectedSource = 'image-caption';
+        } else {
+            this.selectedSource = this.captionSource ? this.captionSource : 'override';
+        }
+    },
 	mounted() {
 		// When an image is updated, check that the data is fresh (via Vue or jQuery)
 		EventManager.$on('metaslider/image-meta-updated', (slides, metadata) => this.updateMetadata(slides, metadata))
@@ -94,7 +104,7 @@ export default {
 		this.language = {
 			'image-caption': this.__('Media caption', 'ml-slider'),
 			'image-description': this.__('Media description', 'ml-slider'),
-			'override': this.__('Manual entry', 'ml-slider')
+			'override': this.__('Manual entry', 'ml-slider'),
 		}
 
 		this.textareaContent = this.convertStyleAttributes(this.sources['override']);
@@ -121,25 +131,204 @@ export default {
 						return;
 					}
 
+					const text = typeof metaslider !== 'undefined' ? metaslider : null;
+
 					const id = `caption_override_${this.$parent.id}`;
-					
 					// Add Image data to metaslider.tinymce
 					if (typeof metaslider.tinymce.find(obj => obj.type === 'image') === 'undefined') {
 						metaslider.tinymce.push({
 							type: 'image',
 							configuration: {
 								toolbar: [
-									'undo redo bold italic forecolor link unlink alignleft aligncenter alignright styles code'
+									'undo redo bold italic underline strikethrough removeformat forecolor fontsizeinput lineheight link unlink alignleft aligncenter alignright styles code device_options add_button'
 								],
 								menubar: false,
 								plugins: 'code link',
+								line_height_formats: '0.8 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3',
 								branding: false,
 								promotion: false,
 								height: 240,
 								preview_styles: false,
 								forced_root_block: 'div',
 								convert_urls: false,
-								setup: function (editor) {
+								content_style: `
+									.ms-custom-button {
+										display: inline-block;
+										background-color: #0073aa;
+										color: #fff;
+										cursor: pointer;
+										padding: 8px 14px;
+										border-radius: 4px;
+										text-decoration: none;
+										transition: background-color 0.2s ease;
+									}
+									.ms-custom-button:hover {
+										opacity: 0.8;
+									}
+								`,
+								setup: (editor) => {
+									editor.on('init', function() {
+										const text = this.__('This will override the Caption Link Color option in the "Theme" area of the right sidebar.', 'ml-slider');
+										setTimeout(function() {
+											const forecolorButton = editor.editorContainer.querySelector('[aria-label*="Text color"]');
+											if (forecolorButton) {
+												forecolorButton.setAttribute('title', text);
+											}
+										}, 100);
+									}.bind(this));
+
+									if (typeof metaslider !== 'undefined' && metaslider.mobile_settings) {
+										editor.on('BeforeSetContent', function (event) {
+											event.content = event.content
+												.replace(/\n/g, ' ')
+												.replace(/<div>\s*(\[metaslider_hide[^\]]*\])\s*<\/div>/g, '$1')
+												.replace(/<div>\s*(\[\/metaslider_hide\])\s*<\/div>/g, '$1'); 
+										});
+
+										editor.on('PostProcess', function (event) {
+											event.content = event.content
+												.replace(/\n/g, ' ')
+												.replace(/<div>\s*(\[metaslider_hide[^\]]*\])\s*<\/div>/g, '$1')
+												.replace(/<div>\s*(\[\/metaslider_hide\])\s*<\/div>/g, '$1');
+										});
+										let selectedOptions = [];
+										editor.ui.registry.addMenuButton('device_options', {
+											text: metaslider.device_options_dropdown,
+											fetch: function(callback) {
+												callback([
+													{
+														type: 'togglemenuitem',
+														text: metaslider.hide_on_mobile,
+														onAction: function(api) {
+															toggleSelection(editor, api, 'smartphone', selectedOptions);
+														}
+													},
+													{
+														type: 'togglemenuitem',
+														text: metaslider.hide_on_tablet,
+														onAction: function(api) {
+															toggleSelection(editor, api, 'tablet', selectedOptions);
+														}
+													},
+													{
+														type: 'togglemenuitem',
+														text: metaslider.hide_on_laptop,
+														onAction: function(api) {
+															toggleSelection(editor, api, 'laptop', selectedOptions);
+														}
+													},
+													{
+														type: 'togglemenuitem',
+														text: metaslider.hide_on_desktop,
+														onAction: function(api) {
+															toggleSelection(editor, api, 'desktop', selectedOptions);
+														}
+													}
+												]);
+											}
+										});
+									}
+									
+									editor.ui.registry.addButton('add_button', {
+										text: text.add_button,
+										onAction: function() {
+											editor.windowManager.open({
+												title: text.add_button,
+												body: {
+													type: 'panel',
+														items: [
+														{ type: 'input', name: 'url', label: text.url },
+														{ type: 'htmlpanel', html: `<div id="url-error" style="color: red; margin-bottom: 5px; display: none;">${text.enter_url}</div>` },
+														{ type: 'input', name: 'text', label: text.link_text },
+														{ type: 'htmlpanel', html: `<div id="text-error" style="color: red; margin-bottom: 5px; display: none;">${text.enter_text}</div>` },
+														{ type: 'checkbox', name: 'newtab', label: text.open_new_window },
+														{ type: 'htmlpanel', html: `<label class="tox-label">${text.button_color}</label><div class="ms-color-tooltip-wrapper"><input type="text" id="bgColor" class="colorpicker" value="rgb(0, 115, 170)" data-alpha-enabled="true" /></div>` },
+														{ type: 'htmlpanel', html: `<label class="tox-label">${text.text_color}</label><div class="ms-color-tooltip-wrapper"><input type="text" id="txtColor" class="colorpicker" value="rgb(255, 255, 255)" data-alpha-enabled="true" /></div>` },											   
+														]
+												},
+												initialData: {},
+												buttons: [
+													{ type: 'cancel', text: text.close },
+													{ type: 'submit', name: 'insert', text: text.insert, primary: true }
+												],
+												onChange: (api, details) => {},
+												onSubmit: function(api) {
+													const data = api.getData();
+													const url = data.url?.trim() || '';
+													const text = data.text?.trim() || '';
+													const newtab = data.newtab || false;
+													const bgColor = document.getElementById('bgColor').value || 'rgb(0, 115, 170)';
+													const txtColor = document.getElementById('txtColor').value || 'rgb(255, 255, 255)';
+													const urlError = document.getElementById('url-error');
+													const textError = document.getElementById('text-error');
+													
+													if (url.trim() == '') {
+														urlError.style.display = '';
+														return;
+													} else {
+														urlError.style.display = 'none';
+													}
+
+													if (text.trim() == '') {
+														textError.style.display = '';
+														return;
+													} else {
+														textError.style.display = 'none';
+													}
+
+													const fallbackSanitize = (text) => {
+														if (!text) return '';
+														return text
+															.replace(/</g, '&lt;')
+															.replace(/>/g, '&gt;')
+															.replace(/"/g, '&quot;')
+															.replace(/'/g, '&#039;')
+															.replace(/&/g, '&amp;');
+													}
+
+													const wpSanitizeAvailable = wp && wp.sanitize && wp.sanitize.stripTagsAndEncodeText;
+													const sanitizedUrl = wpSanitizeAvailable ? 
+														wp.sanitize.stripTagsAndEncodeText(url.trim()) : 
+														fallbackSanitize(url.trim());
+													const sanitizedText = wpSanitizeAvailable ? 
+														wp.sanitize.stripTagsAndEncodeText(text.trim()) : 
+														fallbackSanitize(text.trim());
+													const targetAttr = newtab ? ' target="_blank" rel="noopener"' : '';
+													const bgColorStyle = `background-color: ${bgColor};`;
+													const txtColorStyle = `color: ${txtColor};`;
+													
+													const buttonHtml = `<a href="${sanitizedUrl}" class="ms-custom-button" ${targetAttr} style="${bgColorStyle}${txtColorStyle}">${sanitizedText}</a>`;
+
+													editor.insertContent(buttonHtml);
+													api.close();
+												}
+											});
+
+											let $ = window.jQuery
+											setTimeout(() => {
+												$('.tox-dialog-wrap .colorpicker').each(function() {
+													$(this).wpColorPicker({
+														change: function(event, ui) {
+															var input = $(this).parents('.wp-picker-container').find('input.colorpicker');
+															var btn = $(this).parents('.wp-picker-container').find('button.wp-color-result');
+
+															btn.css('background-color',ui.color.toCSS('rgba'));
+
+															input.data('new-color',ui.color.toCSS('rgba'));
+															input.attr('value',ui.color.toCSS('rgba'));
+															input.val(ui.color.toCSS('rgba'));
+														}
+													}).promise().done(function() {
+														if (text) {
+															$(this).parents('.wp-picker-container').find('.iris-strip').eq(0).prepend(`<span class="ms-color-tooltip">${text.tone}</span>`);
+															$(this).parents('.wp-picker-container').find('.iris-strip').eq(1).prepend(`<span class="ms-color-tooltip">${text.opacity}</span>`);
+														}
+													});
+												});
+											}, 100);
+										}
+									});
+
 									editor.on('input', function () {
 										updateContent(editor);
 									});
@@ -148,8 +337,8 @@ export default {
 										updateContent(editor);
 									});
 
-									const updateContent = function (editor) {
-										const el = document.getElementById(editor.id);
+									var updateContent = function (editor) {
+										var el = document.getElementById(editor.id);
 										if (el) {
 											el.value = editor.getContent();
 										}
@@ -157,6 +346,35 @@ export default {
 								}
 							}
 						});
+
+						function toggleSelection(editor, api, option, selectedOptions) {
+							let selectedText = editor.selection.getContent()
+
+							// Check if text is already wrapped in [metaslider-hide] shortcode
+							let hideRegex = /\[metaslider_hide devices="(.*?)"\]([\s\S]*?)\[\/metaslider_hide\]/;
+							let match = selectedText.match(hideRegex);
+							let currentOptions = [];
+
+							if (match) {
+								currentOptions = match[1].split(", ").map(opt => opt.trim());
+								selectedText = match[2].trim();
+							}
+
+							if (currentOptions.includes(option)) {
+								currentOptions = currentOptions.filter(item => item !== option);
+								api.setActive(false);
+							} else {
+								currentOptions.push(option);
+								api.setActive(true);
+							}
+
+							let newTag = currentOptions.length > 0
+        						? `[metaslider_hide devices="${currentOptions.join(", ")}"]${selectedText}[/metaslider_hide]`
+        						: selectedText;
+
+							editor.selection.setContent(newTag);
+							editor.execCommand('mceUpdateContent');
+						}
 
 					}
 
@@ -221,7 +439,7 @@ export default {
 					return '"';
 				}
 			});
-		},
+		}
 	},
 	watch: {
 		selectedSource(newSource, oldSource) {

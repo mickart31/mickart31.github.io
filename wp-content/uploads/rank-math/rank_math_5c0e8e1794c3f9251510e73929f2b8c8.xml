@@ -1,31 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//micka.7un.net/main-sitemap.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//www.mickart.net/main-sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://micka.7un.net/</loc>
+		<loc>https://www.mickart.net/</loc>
 		<lastmod>2025-04-19T11:40:06+00:00</lastmod>
 	</url>
 	<url>
-		<loc>https://micka.7un.net/2025/04/17/relaxation/</loc>
+		<loc>https://www.mickart.net/2025/04/17/relaxation/</loc>
 		<lastmod>2025-04-19T11:40:06+00:00</lastmod>
 	</url>
 	<url>
-		<loc>https://micka.7un.net/2025/03/19/jeu-de-role/</loc>
+		<loc>https://www.mickart.net/2025/03/19/jeu-de-role/</loc>
 		<lastmod>2025-04-19T08:28:33+00:00</lastmod>
 	</url>
 	<url>
-		<loc>https://micka.7un.net/2025/04/18/contes/</loc>
+		<loc>https://www.mickart.net/2025/04/18/contes/</loc>
 		<lastmod>2025-04-19T08:19:29+00:00</lastmod>
 	</url>
 	<url>
-		<loc>https://micka.7un.net/2025/03/19/cours-dart/</loc>
+		<loc>https://www.mickart.net/2025/03/19/cours-dart/</loc>
 		<lastmod>2025-04-19T07:47:15+00:00</lastmod>
 	</url>
 	<url>
-		<loc>https://micka.7un.net/2025/03/20/eveil-musical/</loc>
+		<loc>https://www.mickart.net/2025/03/20/eveil-musical/</loc>
 		<lastmod>2025-04-19T07:46:02+00:00</lastmod>
 	</url>
 	<url>
-		<loc>https://micka.7un.net/2025/03/17/even/</loc>
+		<loc>https://www.mickart.net/2025/03/17/even/</loc>
 		<lastmod>2025-04-18T19:31:46+00:00</lastmod>
 	</url>
 </urlset>

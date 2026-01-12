@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /wp-admin/
 Allow: /wp-admin/admin-ajax.php
 
-Sitemap: https://micka.7un.net/sitemap_index.xml
+Sitemap: https://www.mickart.net/sitemap_index.xml

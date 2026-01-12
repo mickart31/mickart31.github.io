@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { __, _x, _n, _nx, sprintf, setLocaleData, EventManager } from './utils'
 import SweetModal from 'sweet-modal-vue/src/plugin.js'
 import Swal from 'sweetalert2'
-import "@sweetalert2/theme-wordpress-admin/wordpress-admin.scss";
+import "@sweetalert2/themes/wordpress-admin/wordpress-admin.scss";
 import { mapGetters } from 'vuex'
 
 // Set up the locale data for the translations to be used globally.
@@ -28,6 +28,8 @@ Vue.mixin({
 		this.privacyLink = window.metaslider_api.privacy_link
 		this.themeEditorLink = window.metaslider_api.theme_editor_link
 		this.metasliderPage = window.metaslider_api.metaslider_page
+		this.metaslider_settings_page = window.metaslider_api.metaslider_settings_page
+		this.autoThemeConfig = window.metaslider_api.autoThemeConfig
 		this.production = process.env.NODE_ENV === 'production'
 
 		this.isIE11 = !!window.MSInputMethodContext && !!document.documentMode

@@ -177,6 +177,9 @@ const mutations = {
                         Axios.post('import/images', QS.stringify({
                             action: 'ms_import_images',
                             slideshow_id: slideshows[key].id,
+                            extra: {
+                                slug: slug || ''
+                            }
                         })).then(response => {
                             // This will trigger sampleSlidesWereAdded()
                             window.location.href = window.location.href.replace('metaslider_add_sample_slides', 'metaslider_add_sample_slides_after');

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//micka.7un.net/main-sitemap.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//www.mickart.net/main-sitemap.xsl"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<sitemap>
-		<loc>https://micka.7un.net/post-sitemap.xml</loc>
+		<loc>https://www.mickart.net/post-sitemap.xml</loc>
 		<lastmod>2025-04-19T11:40:06+00:00</lastmod>
 	</sitemap>
 	<sitemap>
-		<loc>https://micka.7un.net/page-sitemap.xml</loc>
+		<loc>https://www.mickart.net/page-sitemap.xml</loc>
 		<lastmod>2025-04-18T11:24:55+00:00</lastmod>
 	</sitemap>
 </sitemapindex>
