@@ -2,7 +2,15 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://www.mickart.net/</loc>
-		<lastmod>2026-01-14T22:05:50+00:00</lastmod>
+		<lastmod>2026-04-21T12:48:57+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.mickart.net/galerie/</loc>
+		<lastmod>2026-04-21T12:48:57+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.mickart.net/test/</loc>
+		<lastmod>2026-03-16T12:51:11+00:00</lastmod>
 	</url>
 	<url>
 		<loc>https://www.mickart.net/aprops/</loc>
@@ -11,10 +19,6 @@
 	<url>
 		<loc>https://www.mickart.net/latelier-de-lame-soins-harmonie/</loc>
 		<lastmod>2026-01-14T09:21:00+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://www.mickart.net/galerie/</loc>
-		<lastmod>2025-04-18T11:24:55+00:00</lastmod>
 	</url>
 	<url>
 		<loc>https://www.mickart.net/contact/</loc>
