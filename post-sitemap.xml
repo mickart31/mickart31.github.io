@@ -2,7 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://www.mickart.net/</loc>
-		<lastmod>2026-04-21T12:59:36+00:00</lastmod>
+		<lastmod>2026-04-21T13:02:43+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.mickart.net/2025/03/20/eveil-musical/</loc>
+		<lastmod>2026-04-21T13:02:43+00:00</lastmod>
 	</url>
 	<url>
 		<loc>https://www.mickart.net/2025/03/19/jeu-de-role/</loc>
@@ -11,10 +15,6 @@
 	<url>
 		<loc>https://www.mickart.net/2025/04/17/arts-artisanats/</loc>
 		<lastmod>2026-04-21T12:00:51+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://www.mickart.net/2025/03/20/eveil-musical/</loc>
-		<lastmod>2026-04-21T11:49:34+00:00</lastmod>
 	</url>
 	<url>
 		<loc>https://www.mickart.net/2025/03/19/cours-dart/</loc>
