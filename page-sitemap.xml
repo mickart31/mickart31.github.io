@@ -2,11 +2,32 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://www.mickart.net/</loc>
-		<lastmod>2026-05-01T12:49:17+00:00</lastmod>
+		<lastmod>2026-05-01T15:06:20+00:00</lastmod>
 	</url>
 	<url>
 		<loc>https://www.mickart.net/lecho-du-hameau/</loc>
-		<lastmod>2026-05-01T12:49:17+00:00</lastmod>
+		<lastmod>2026-05-01T15:06:20+00:00</lastmod>
+		<image:image>
+			<image:loc>https://www.mickart.net/wp-content/uploads/2025/04/448822883_26181399061458513_5364534822364140189_n.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://www.mickart.net/wp-content/uploads/2026/04/relaxation2.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://www.mickart.net/wp-content/uploads/2026/04/craft.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://www.mickart.net/wp-content/uploads/2026/04/eveil.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://www.mickart.net/wp-content/uploads/2026/04/dessin1.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://www.mickart.net/wp-content/uploads/2025/03/jdr.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://www.mickart.net/wp-content/uploads/2026/04/anniversaire.webp</image:loc>
+		</image:image>
 	</url>
 	<url>
 		<loc>https://www.mickart.net/galerie/</loc>
