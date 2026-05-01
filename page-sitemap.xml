@@ -2,11 +2,18 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://www.mickart.net/</loc>
-		<lastmod>2026-05-01T15:06:20+00:00</lastmod>
+		<lastmod>2026-05-01T19:48:45+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://www.mickart.net/contact/</loc>
+		<lastmod>2026-05-01T19:48:45+00:00</lastmod>
 	</url>
 	<url>
 		<loc>https://www.mickart.net/lecho-du-hameau/</loc>
-		<lastmod>2026-05-01T15:06:20+00:00</lastmod>
+		<lastmod>2026-05-01T19:31:06+00:00</lastmod>
+		<image:image>
+			<image:loc>https://www.mickart.net/wp-content/uploads/2026/05/cercles.webp</image:loc>
+		</image:image>
 		<image:image>
 			<image:loc>https://www.mickart.net/wp-content/uploads/2025/04/448822883_26181399061458513_5364534822364140189_n.jpg</image:loc>
 		</image:image>
@@ -44,10 +51,6 @@
 	<url>
 		<loc>https://www.mickart.net/latelier-de-lame-soins-harmonie/</loc>
 		<lastmod>2026-01-14T09:21:00+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://www.mickart.net/contact/</loc>
-		<lastmod>2025-04-18T11:20:50+00:00</lastmod>
 	</url>
 	<url>
 		<loc>https://www.mickart.net/reservation/</loc>
